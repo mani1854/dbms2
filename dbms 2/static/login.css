@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #f8f9fa;
+    padding: 10px;
+}
+
+.navigation a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.container {
+    margin: 20px;
+}
+
+.alert {
+    padding: 10px;
+    margin: 15px 0;
+}
+
+h1, h2, h3 {
+    color: #343a40;
+}

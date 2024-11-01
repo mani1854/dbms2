@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} Home | NewsFusion {% endblock %}
+
+{% block content %}
+    <h2>Welcome to NewsFusion</h2>
+    <p>Your source for the latest posts.</p>
+    <div>
+        {% for post in posts %}
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.content }}</p>
+            <form action="{{ url_for('post_detail', postid=post.postid) }}" method="POST">
+                <button name="like">Like ({{ post.like_count }})</button>
+                <button name="bookmark">Bookmark</button>
+                <a href="{{ url_for('post_detail', postid=post.postid) }}">View Details</a>
+            </form>
+            <hr>
+        {% endfor %}
+    </div>
+{% endblock %}

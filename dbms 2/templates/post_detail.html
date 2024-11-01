@@ -1,0 +1,24 @@
+  {% extends 'base.html' %}
+
+{% block title %} Post Detail | NewsFusion {% endblock %}
+
+{% block content %}
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.content }}</p>
+    <p>Likes: {{ post.like_count }}</p>
+    <form action="{{ url_for('report', postid=post.postid) }}" method="POST">
+        <textarea name="reason" placeholder="Reason for reporting"></textarea>
+        <button type="submit">Report Post</button>
+    </form>
+    <h3>Comments</h3>
+    <form method="POST">
+        <textarea name="comment_content" placeholder="Add a comment"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+    {% for comment in comments %}
+        <div>
+            <p><strong>{{ comment.fk_username }}:</strong> {{ comment.comment_content }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
+
